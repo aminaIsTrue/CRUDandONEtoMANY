@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+
+{% for post  in posts %}
+
+
+
+<div class="card border-info mt-3" >
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.content | safe | truncatewords_html:50}}</p>
+      <a href="{% url 'detail-path' post.pk %}" class="btn btn-primary">Read More</a>
+      <a href="{% url 'update-path' post.pk %}" class="btn btn-outline-success">Update</a>
+      <a href="{% url 'delete-path' post.pk %}" class="btn btn-danger">Delete</a>
+      <a href="{% url 'contributionlist-path' post.pk %}" class="btn btn-info">Add Contribution(s)</a>
+    </div>
+  </div>
+
+  
+{% endfor %}
+  
+{% endblock  %}

@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+
+{% block content %}
+  
+<form method="POST">
+
+    {% csrf_token %}
+<p>Are you sure to Delete the {{post.title}} ?</p>
+
+<input type="submit" value="yes" class="btn btn-danger">
+
+<a href="{% url 'home-path' %}" class="btn btn-secondary">Cancel</a>
+
+</form>
+   
+{% endblock  %}

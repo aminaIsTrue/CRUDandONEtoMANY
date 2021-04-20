@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="card  mt-3" >
+    <div class="card-body">
+      <a href="{% url 'contributioncreate-path' post.pk %}" class="btn btn-primary btn-lg btn-block">New contribution</a>
+    </div>
+</div>
+
+{% for contribution  in contribs %}
+
+<div class="card border-info mt-3" >
+    <div class="card-body">
+      <h5 class="card-title">{{contribution.user}}</h5>
+      <p class="card-text">{{contribution.contribution}}</p>
+     
+    </div>
+  </div>
+
+{% endfor %}
+  
+{% endblock  %}
